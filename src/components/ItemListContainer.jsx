@@ -1,8 +1,13 @@
 import React from "react"
+import ItemCount from "./ItemCount"
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+const onAdd = (quantity)=>{
+    console.log(`agregaste ${quantity} unidades`);
+}
+
     return(
-        <h1 style={{backgroundColor:'#FFC758',textAlign:'center',color:'black' }}>{greeting}</h1>
+        <ItemCount initial={0} stock={5} onAdd={onAdd}/>
     )
 }
 export default ItemListContainer
