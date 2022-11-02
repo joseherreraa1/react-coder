@@ -1,12 +1,12 @@
 import React from "react";
-import icono from '../IconoCarrito.svg'
+import icono from "../IconoCarrito.svg"
 
 
 const CartWidget = () => {
-    return(
+    return (
         <a href="#">
-            <img src={icono} className='iconoCarrito'></img>
+            <img src={icono} className="iconoCarrito"></img>
         </a>
-    )
-}
-export default CartWidget
+    );
+};
+export default CartWidget;
