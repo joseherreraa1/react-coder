@@ -1,11 +1,42 @@
-.item{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 150px;
+.card-container{
+    height: 20rem;
+    width: 15rem;
+    background-color: white;
+    border-radius: 15px;
+    padding: .7rem;
+    margin-bottom: 3rem;
 }
-.item img{
-    width: 100%;
-    height: 100%;
+.card-container:hover{
+    transform: translateY(-10px);
+    transition: all 200ms;
+}
 
+.card-product-img {
+    height: 18rem;
+    width: 15rem;
+    border-radius: 7px 7px 0 0;
+    object-fit: contain;
+}
+.product-card-title{
+    font-size: 1.1rem;
+}
+
+.product-card-description{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card-product-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.stock-info{
+    font-size: .7rem;
+    text-align: center;
+}
+
+.product-card-button{
+    cursor: pointer;
 }

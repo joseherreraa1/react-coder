@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from 'react'
-import ItemList from "./ItemList";
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import "./ItemListContainer.css"
+import ItemDetail from './ItemDetail';
 
+export default function ItemDetailContainer() {
 
-export default function ItemListContainer () {
-
-    const { idcategory } = useParams();
+    const {iditem} = useParams();
+    const [Catalogue, setCatalogue] = useState([]);
 
     const productosHC = [
         {
@@ -60,69 +59,24 @@ export default function ItemListContainer () {
             price: "361.599,00",
             description: "Televisor Smart Android LED 4K UHD (3840 x 2160), con tecnologia Ambilight en 3 lados. Sistema operativo Android TV 11. Procesador Quad Core. Tamano de memoira (flash) 16Gb. Control por voz con el Asistente de Google, compatible con Alexa. HDR para imagenes mas vibrantes y brillantes. Motor de imagen P5 para mas profundidad, colores mas intensos y naturales, contraste nitido y movimiento muy fluido. Diseno atractivo, elegante y ultra fino. Dolby Vision y Dolby Atmos para vision y sonido cinematografico. DTS Play-Fi para conectar parlantes compatibles en cualquier habitacion. Se puede ajustar el soporte para complementar con una barra de sonido. Ideal para jugar con cualquier consola gracias a su bajo tiempo de latencia. Conectividad: 4 HDMI. 2 USB. Wi-Fi 802.11ac, 2x2, doble banda, Bluetooth 5.0. Salida de audio digital (optica). Ethernet-LAN RJ-45, Salida de auriculares, Conector de servicio, Antena IEC75. Medidas con soporte (alt-anch-prof) 103.2 x 167 x 36.1. Compatible con soporte de pared: 300 x 300 mm. Incluye Cable de alimentacion, Soporte para la mesa, Control remoto, 2 pilas AAA",
         },
-        ];
+        ]; 
 
-    const [Catalogue, setCatalogue] = useState([]) 
+        useEffect(() => {
 
-    useEffect(() => {
-        const fetching = new Promise((resolve, reject) => {
-            setCatalogue([])
-            setTimeout(() => {
-                resolve(productosHC)
-            }, );
-        })
-        fetching.then( res => {
-            if (idcategory) {
-                setCatalogue(res.filter((productosHC) => productosHC.category === idcategory))
-            }
-            else {
-                setCatalogue(res)
-            }
-        })
-        .catch((err) => console.log(err))
-    }, [idcategory])
-
-    return ( 
-            <div className="item-list-container">
-                <ItemList productosHC={Catalogue}/>  
-            </div>
+            const fetching = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(productosHC)
+                },);
+            })
+            fetching.then((res) => {
+                (iditem || isNaN(iditem)) && setCatalogue(res.find(((el) => el.id == iditem))) 
+            })
+            fetching.catch((err) => console.log(err))
+        }, [iditem])
+    
+        return (
+            (Catalogue.length === 0) ?
+            <div className='loading-wrapper'><div className='loading-circle'></div></div> : <>
+            <ItemDetail productosHC={Catalogue}/></>
         )
-};
-
-
-
-/* import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { productosHC } from "./data";
-import ItemList from "./ItemList";
-
-export const ItemListContainer = () => {
-const { idcategory } = useParams();
-
-const [productos, setProductos] = useState([]);
-
-useEffect(() => {
-    const productosPromise = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve(productosHC);
-    }, 2000);
-    });
-
-    productosPromise.then((res) => {
-    if (idcategory) {
-        setProductos(res.filter((item) => item.category == idcategory));
-    } else {
-        setProductos(res);
     }
-    });
-}, [idcategory]);
-
-
-return (
-    <>
-    <ItemList productosHC={productos} />
-    </>
-);
-};
-export default ItemListContainer;
- */

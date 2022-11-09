@@ -1,12 +1,13 @@
 import React from "react";
-import icono from "../IconoCarrito.svg"
-
+import icono from "../IconoCarrito.svg";
+import "./CartWidget.css";
 
 const CartWidget = () => {
-    return (
-        <a href="#">
+return (
+    <button className='bag-btn'>
             <img src={icono} className="iconoCarrito"></img>
-        </a>
-    );
+    <div className='cart-counter'> - </div>
+</button>
+);
 };
 export default CartWidget;
