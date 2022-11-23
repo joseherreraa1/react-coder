@@ -23,30 +23,3 @@ export default function ItemDetail({productosHC}) {
     </article>
   )
 }
-
-/* 
-import React from 'react'
-
-export default function ItemDetail(productos) {
-  return (
-    <div>
-      {productos.id ?(
-      <>
-      {productos.id +
-      " " + 
-      " " +
-      productos.image + 
-      " " +
-      " " +
-      productos.title +
-      " " +
-      " " +
-      productos.category
-      }
-      </>
-  ) : (
-    <> Loading.. </>
-    )} 
-    </div>
-  )
-} */
