@@ -15,9 +15,9 @@ export default function App () {
       <Navbar/>
       <Routes>
         <Route path='/' element={<ItemListContainer/>} />
-        <Route path='/contacto' element={<Contacto/>} />
         <Route path='/category/:idcategory' element={<ItemListContainer/>} />
         <Route path='/item/:iditem' element={<ItemDetailContainer/>} />
+        <Route path='/contacto' element={<Contacto/>} />
         <Route path='/checkout' element={<Checkuot /> } />
         <Route path='/cart' element={<Cart/>} />
         <Route />

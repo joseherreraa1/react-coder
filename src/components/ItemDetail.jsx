@@ -1,4 +1,36 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import ItemCount from './ItemCount';
+
+export default function ItemDetail({ product }) {
+  return (
+  <div>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={product.imgUrl} alt={product.nombre} />
+      <Card.Body>
+        <Card.Title>{product.nombre}</Card.Title>
+        <Card.Text>
+        ${product.precio}
+        </Card.Text>
+        <Link to={`/item/${product.id}`}>
+        <Button variant="primary" size= "sm">Ver Mas</Button>
+        </Link>
+      </Card.Body>
+      <ItemCount product={product}/>
+    </Card>
+
+    </div>
+  )
+}
+
+
+
+
+
+
+/* import React from 'react';
 import "./ItemDetail.css";
 
 export default function ItemDetail({productosHC}) {
@@ -22,4 +54,4 @@ export default function ItemDetail({productosHC}) {
         </div>
     </article>
   )
-}
+} */

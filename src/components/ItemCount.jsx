@@ -1,4 +1,31 @@
-import React, {useState, useEffect} from "react";
+import React from 'react'
+import { useState } from 'react'
+
+export default function ItemCount({ item }) {
+
+    const[count, setCount] = useState(0);
+    function sum(){
+        if(count < item.stock){
+        setCount(count + 1)
+        }
+    }
+    function res (){
+        if (count >= 2){
+        setCount(count - 1)
+        }
+    }
+  return (
+    <div>
+
+    </div>
+  )
+}
+
+
+
+
+
+/* import React, {useState, useEffect} from "react";
 import "./ItemCount.css";
 
 export default function ItemCount ({productoHc}) {
@@ -39,3 +66,4 @@ export default function ItemCount ({productoHc}) {
         </div>
     )
 };
+ */
