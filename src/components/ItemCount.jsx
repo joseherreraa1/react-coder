@@ -1,22 +1,53 @@
-import React from 'react'
-import { useState } from 'react'
 
-export default function ItemCount({ item }) {
+import React from 'react';
+import { useContext } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { cartContext } from '../CartContextComponent';
 
-    const[count, setCount] = useState(0);
+export default function ItemCount({ product }) {
+    const [count, setCount] = useState(1);
+    const [removeButton, setremoveButton] = useState(false);
+    const {cart, addToCart} = useContext(cartContext);
+
     function sum(){
-        if(count < item.stock){
-        setCount(count + 1)
+        if(count < product.stock){
+        setCount(count + 1);
         }
     }
     function res (){
         if (count >= 2){
-        setCount(count - 1)
+        setCount(count - 1);
         }
     }
+    function onAdd() {
+        addToCart(product, count);
+        setremoveButton(true);
+    }
+
+    useEffect(() => {
+     console.log(cart);
+    }, [cart]);
+    
   return (
     <div>
-
+        <span style={{cursor: "pointer"}} onClick={sum}>
+        +
+        </span>
+        {count}
+        <span style={{cursor: "pointer"}} onClick={res}>
+        -
+        </span>
+        <br/>
+        {removeButton?(
+            <>
+         producto agregado
+         <Link to="/" >Seguir Comprando</Link>
+         <Link to="/checkout">Terminar Compra</Link>
+         </>
+         ): (
+         <button onClick={onAdd}>Agregar al Carro</button>
+         )}
     </div>
   )
 }

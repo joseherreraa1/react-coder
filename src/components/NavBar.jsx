@@ -19,10 +19,10 @@ export default function NavBar (){
                 <Link to="/" className="nav-link text-light fw-bold link">
                 Inicio
                 </Link>
-                <Link to="/category/Celulares" className="nav-link text-light fw-bold link">
+                <Link to="/category/celulares" className="nav-link text-light fw-bold link">
                 Celulares
                 </Link>
-                <Link to="/category/Televisores" className="nav-link text-light fw-bold link">
+                <Link to="/category/televisores" className="nav-link text-light fw-bold link">
                 Televisores
                 </Link>
                 <Link to="/Contacto" className="nav-link text-light fw-bold link">
@@ -35,5 +35,5 @@ export default function NavBar (){
             </Navbar.Collapse>
         </Container>
         </Navbar>
-    )
+    )
 };

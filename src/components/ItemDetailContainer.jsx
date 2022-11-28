@@ -5,11 +5,11 @@ import ItemDetail from './ItemDetail';
 
 export default function ItemDetailContainer() {
   const [product, setProduct] = useState({});
-  const { idItem } = useParams();
+  const { iditem} = useParams();
   
   useEffect(() => {
     const db = getFirestore();
-    const refDoc = doc(db, "products", idItem);
+    const refDoc = doc(db, "products", iditem);
 
     getDoc(refDoc).then((item) => {
       const aux = {
@@ -19,11 +19,11 @@ export default function ItemDetailContainer() {
 
       setProduct(aux);
     });
-  }, [idItem]);
+  }, [iditem]);
 
  
   return (
-      <ItemDetail product={product}  />
+      <ItemDetail product={product}/>
 
-  );
+    );
 }

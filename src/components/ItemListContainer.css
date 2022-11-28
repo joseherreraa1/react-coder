@@ -1,16 +1,13 @@
-body{
-    background-color: #fafaf8;
-  }
+
   
   .item-list-container{
-    background-color: #faf8f8;
-    min-height: 390px;
-    width: 80%;
-    margin: 25px auto;
+    background-color: rgb(227, 55, 55);
     padding: 2rem;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
+    flex-flow: wrap;
+    flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
-    align-items: center;
+    align-content: center;
   }
