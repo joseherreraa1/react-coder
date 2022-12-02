@@ -1,9 +1,10 @@
 import React from "react";
 import Item from "./Item";
+import './ItemListContainer.css'
 
 export default function ItemList({ products }) {
   return(
-  <div>
+  <div className="item-list-container">
     {products.map((product) =>(
       <Item key={product.id} product={product} />
   ))}
@@ -12,27 +13,4 @@ export default function ItemList({ products }) {
 }
 
 
-
-/*    
- !productosHC.length ? (
-<>
-      <div className="loading-wrapper">
-        <div className="loading-circle"></div>
-      </div>
-    </>
-  ) : (
-    productosHC.map((item) => {
-      return (
-        <article className="card-container" key={item.id}>
-          <Item
-            title={item.name}
-            picture={item.image}
-            description={item.title}
-            price={item.price}
-            id={item.id}
-          />
-        </article>
-      );
-    })
-  ); */
 

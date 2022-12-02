@@ -2,7 +2,7 @@ import { collection, getDocs, getFirestore, query, where } from 'firebase/firest
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
-import './ItemListContainer.css'
+//import './ItemListContainer.css'
 
 export default function ItemListContainer() {
   const [products, setProducts] = useState([]);
@@ -34,7 +34,7 @@ export default function ItemListContainer() {
  console.log(products)
   return (
     <div className="item-list-container">
-      <ItemList products={products} />
+      <ItemList  products={products} />
     </div>
   );
 }

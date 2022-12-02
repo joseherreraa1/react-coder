@@ -9,7 +9,7 @@ const CartWidget = () => {
 return (
     <Link to= "./cart">
     <button className='bag-btn '>
-           🛒 {totalCount}
+           🛒 
     <div className='cart-counter'> {totalCount} </div>
 </button></Link>
 );

@@ -1,9 +1,8 @@
-import React from 'react';
-import { useContext } from 'react';
-import { useState } from 'react';
-import { cartContext } from '../CartContextComponent';
-import {  addDoc, collection, getFirestore } from 'firebase/firestore';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { cartContext } from '../CartContextComponent';
+import './checkout.css'
 
 export default function Checkout() {
   const { totalToPay, cart, deleteAllFromCart } = useContext(cartContext);
@@ -28,7 +27,7 @@ export default function Checkout() {
   }
 
 if(cart.length == 0){
-  return(<>Nohay nada para pagar</>)
+  return(<>No hay nada para pagar</>)
 }
 
   return (
@@ -36,12 +35,16 @@ if(cart.length == 0){
       {orderId ? (
       'Gracias por confiar tu id de compra es: ' + orderId 
      ) : (
-      <div>
-        <h1>Terminar Compra, ingrese datos</h1>
-        <input type="text" placeholder="name" onChange={(e) => setName(e.target.value)} />
-        <input type="tel" placeholder="tel" onChange={(e) => setTel(e.target.value)} />
-        <input type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)} />
-        <Link to="/" > <button  onClick={validateForm}>Terminar compra</button> </Link>
+      <div className='checkout-form'>
+        <h1 className='main-title__container'>Terminar Compra, ingrese datos</h1>
+        <div className='checkout-main  '>
+          Nombre :
+        <input type="text" placeholder="Nombre" onChange={(e) => setName(e.target.value)} />
+          </div>
+          <div className='checkout-main '>Email :<input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />  </div>
+          <div className='checkout-main '>Email :<input type="email" placeholder="Confirme Email" onChange={(e) => setEmail(e.target.value)} />  </div>
+          <div className='checkout-main '>Telefono :<input type="phone" placeholder="Telefono" onChange={(e) => setTel(e.target.value)} />  </div>
+        <Link to="/"> <button className='button' size= "lg" onClick={validateForm}>Terminar compra</button> </Link>
       </div>
       )}
     </>

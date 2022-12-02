@@ -1,6 +1,17 @@
 .titulo{
     font-size: 2rem;
     display: flex;
+    align-items: flex-start;
     color: #FD794F;
 }
+.titulo:hover{
+    color: aliceblue;
+}
+.nave{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+}
+
 

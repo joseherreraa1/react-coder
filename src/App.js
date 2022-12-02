@@ -3,7 +3,6 @@ import "./App.css";
 import Cart from './components/Cart';
 import CartContextComponent from './CartContextComponent';
 import Checkuot from "./components/Checkout";
-import Contacto from './components/Contacto';
 import Footer from './components/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
@@ -21,7 +20,6 @@ export default function App () {
             <Route path='/' element={<ItemListContainer/>} />
             <Route path='/category/:idcategory' element={<ItemListContainer/>}/>
             <Route path='/item/:iditem' element={<ItemDetailContainer/>} />
-            <Route path='/contacto' element={<Contacto/>} />
             <Route path='/checkout' element={<Checkuot /> } />
             <Route path='/cart' element={<Cart/>} />
             <Route />

@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../CartContextComponent';
+import { Button} from 'react-bootstrap';
 
 export default function ItemCount({ product }) {
     const [count, setCount] = useState(1);
@@ -31,22 +32,28 @@ export default function ItemCount({ product }) {
     
   return (
     <div>
-        <span style={{cursor: "pointer"}} onClick={sum}>
-        +
+        <span style={{cursor: "pointer", margin: "1rem"}} onClick={sum}>
+         <Button className='button' size= "sm">+</Button>
         </span>
         {count}
-        <span style={{cursor: "pointer"}} onClick={res}>
-        -
+        <span style={{cursor: "pointer", margin: "1rem"}} onClick={res}>
+        <Button className='button' size= "sm">-</Button>
         </span>
-        <br/>
+
         {removeButton?(
             <>
-         producto agregado
-         <Link to="/" >Seguir Comprando</Link>
-         <Link to="/checkout">Terminar Compra</Link>
+         Producto agregado
+         <br/>
+         <br/>
+         <Link to="/" style={{margin: "10px"}}>
+         <Button className='button' size= "sm">Seguir Comprando</Button>
+         </Link>
+         <Link to="/cart" style={{margin: "10px"}}>
+         <Button className='button' size= "sm">Ir Al Carrito</Button>
+         </Link>
          </>
          ): (
-         <button onClick={onAdd}>Agregar al Carro</button>
+         <Button className='button'  size= "sm" onClick={onAdd}>Agregar al Carro</Button>
          )}
     </div>
   )

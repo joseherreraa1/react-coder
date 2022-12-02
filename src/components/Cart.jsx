@@ -2,26 +2,43 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../CartContextComponent';
+import Button from 'react-bootstrap/Button';
+import "./cart.css"
 
 export default function Cart() {
   const { cart, totalCount, totalToPay, deleteFromCart } = useContext(cartContext);
 
   if(cart.lenght == 0){
-    return(<>No hay nada en el carro</>)
+    return(<div className="cart-product-name">No hay nada en el carro</div>)
   }
 
   return (
     <>
       {cart.map((item) => (
-          <div key={item.id}>
-            {item.name + '  ' + item.count + "unidad"}{" "}
-            <span onClick={() => deleteFromCart(item.id)}>🗑️</span>
+          <div key={item.id} className="cart-product-container">
+            <img className='cart-product-img' src={item.imgUrl} alt={item.name}/>
+            <div className="info-container">
+              <h3 className="cart-product-name">{item.name}</h3>
+            <div className="info-group">
+              <p className="info-group__title">Cantidad:</p>
+              <p className="info-group__value">{item.count} {" "}</p>
+            </div>
+            <div className="info-group">
+                  <p className="info-group__title"> Precio: $</p>
+                  <p className="info-group__value">
+                    {item.price * item.count}{" "}
+                  </p>
+                </div>
+                <Button className='delete-btn' onClick={() => deleteFromCart(item.id)}> 
+                <span >🗑️</span>
+                </Button>
+          </div>
           </div>
       ))}
       <div>
-        tienes en el carro: {totalCount} a pagar: {totalToPay}
+        <p className="info-group__title">TOTAL: </p>
+        <p  className="total-price__amount">${totalToPay}</p>
       </div>
-      <Link to="/checkout">Terminar Compra</Link>
+      <Link to="/checkout"><Button className='button' size= "sm">Terminar Compra</Button></Link>
     </>
-  );
-}
+  )}

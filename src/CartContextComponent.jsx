@@ -29,7 +29,7 @@ function deleteFromCart(id){
   setCart(cart.filter(item => item.id !== id));
 }
 function deleteAllFromCart(){
-  setCart();
+  setCart([])
 }
 
 

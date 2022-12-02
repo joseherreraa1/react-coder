@@ -5,22 +5,23 @@ import './ItemDetail.css';
 
 export default function ItemDetail({ product }) {
   return (
-  <div>
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={product.imgUrl} alt={product.name} />
-      <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>
+   <div className='container' >
+      <Card  style={{ width: '30rem', margin:"16px"}}>
+      <Card.Title className='title' style={{margin:"1rem"}}>{product.name}</Card.Title>
+      <Card.Text className='title'>
         ${product.price}
-        </Card.Text>
-      </Card.Body>
-      <ItemCount product={product}/>
-    </Card>
-
+      </Card.Text>
+        <Card.Img style={{width:"25rem",}} variant="top" src={product.imgUrl} alt={product.name} />
+        <Card.Body>
+          {product.description}
+        </Card.Body>
+        <ItemCount product={product}/>
+      </Card>
     </div>
   )
-}
+}/* 
 
+ */
 
 
 

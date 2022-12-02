@@ -1,42 +1,43 @@
-.card-container{
-    height: 20rem;
-    width: 15rem;
-    background-color: white;
-    border-radius: 15px;
-    padding: .7rem;
-    margin-bottom: 3rem;
+html,body{
+    margin: 0;
+    padding: 0;
 }
-.card-container:hover{
-    transform: translateY(-10px);
-    transition: all 200ms;
+body{
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
 }
-
-.card-product-img {
-    height: 18rem;
-    width: 15rem;
-    border-radius: 7px 7px 0 0;
-    object-fit: contain;
-}
-.product-card-title{
-    font-size: 1.1rem;
-}
-
-.product-card-description{
-    white-space: nowrap;
-    text-overflow: ellipsis;
+.cards{
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-}
-
-.card-product-group{
-    display: flex;
-    justify-content: space-between;
-}
-
-.stock-info{
-    font-size: .7rem;
     text-align: center;
+    transition: all 0.25s;
+
 }
 
-.product-card-button{
-    cursor: pointer;
+.cards:hover{
+    transform: translate(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
+.title{
+    text-align: center;
+    font-size: 2rem;
+    color: #000000;
+
+}
+.button{
+    background-color: #FD794F;
+    border-color: #FD794F;
+}
+.button:hover{
+    background-color: #FD794F;
+     border-color: #FD794F;
+     color: #000000;
+}
+
+  

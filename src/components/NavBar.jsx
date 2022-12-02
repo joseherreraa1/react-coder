@@ -15,7 +15,7 @@ export default function NavBar (){
             </Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <Nav className="collapse navbar-collapse nave" id="navbarNavAltMarkup">
                 <Link to="/" className="nav-link text-light fw-bold link">
                 Inicio
                 </Link>
@@ -25,11 +25,8 @@ export default function NavBar (){
                 <Link to="/category/televisores" className="nav-link text-light fw-bold link">
                 Televisores
                 </Link>
-                <Link to="/Contacto" className="nav-link text-light fw-bold link">
-                Contacto
-                </Link>
             </Nav>
-            <div>
+            <div className="logo-carro">
                 <CarWidget />
             </div>
             </Navbar.Collapse>
