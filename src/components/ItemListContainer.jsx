@@ -35,6 +35,6 @@ export default function ItemListContainer() {
   return (
     <div className="item-list-container">
       <ItemList  products={products} />
-    </div>
-  );
+    </div>
+);
 }

@@ -9,21 +9,23 @@ export default function Checkout() {
   const [name, setName] = useState('');
   const [tel, setTel] = useState('');
   const [email, setEmail] = useState('');
+  const [confirmEmail, SetConfirmEmail] = useState('');
   const [orderId, setOrderId] = useState('');
+  const [payConfirmed, setPayConfirmed] = useState(false);
   function validateForm() {
     const order = {
-      buyer: { name, tel, email },
+      buyer: { name, tel, email, confirmEmail },
       totalToPay,
       cart,
     };
-    //CONTROLAR CON UN IF
+
 
     const db = getFirestore();
     const orders = collection(db, 'orders');
-    addDoc(orders, order).then(({ id }) => {
-      setOrderId(id);
+    addDoc(orders, order).then(({ id }) => setOrderId(id));
+    setPayConfirmed(true);
       deleteAllFromCart();
-    });
+
   }
 
 if(cart.length == 0){
@@ -32,21 +34,21 @@ if(cart.length == 0){
 
   return (
     <>
-      {orderId ? (
-      'Gracias por confiar tu id de compra es: ' + orderId 
+    {payConfirmed ? (
+              <p>
+              Gracias por confiar tu id de compra es: {" "}
+            <span className="id-order-number">{orderId}</span>
+          </p>
      ) : (
       <div className='checkout-form'>
         <h1 className='main-title__container'>Terminar Compra, ingrese datos</h1>
-        <div className='checkout-main  '>
-          Nombre :
-        <input type="text" placeholder="Nombre" onChange={(e) => setName(e.target.value)} />
-          </div>
+        <div className='checkout-main  '>Nombre : <input type="text" placeholder="Nombre" onChange={(e) => setName(e.target.value)} /> </div>
           <div className='checkout-main '>Email :<input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />  </div>
-          <div className='checkout-main '>Email :<input type="email" placeholder="Confirme Email" onChange={(e) => setEmail(e.target.value)} />  </div>
+          <div className='checkout-main '>Confirmar Email :<input type="email" placeholder="Confirme Email" onChange={(e) => SetConfirmEmail(e.target.value)} />  </div>
           <div className='checkout-main '>Telefono :<input type="phone" placeholder="Telefono" onChange={(e) => setTel(e.target.value)} />  </div>
-        <Link to="/"> <button className='button' size= "lg" onClick={validateForm}>Terminar compra</button> </Link>
+      <Link to="/"><button className='button' size= "lg" onClick={validateForm}>Terminar compra</button></Link> 
       </div>
       )}
     </>
-  );
+  )
 }

@@ -31,7 +31,7 @@ export default function ItemCount({ product }) {
     }, [cart]);
     
   return (
-    <div>
+    <div style={{fontWeight:"700", margin:"1rem"}}>
         <span style={{cursor: "pointer", margin: "1rem"}} onClick={sum}>
          <Button className='button' size= "sm">+</Button>
         </span>
@@ -58,50 +58,3 @@ export default function ItemCount({ product }) {
     </div>
   )
 }
-
-
-
-
-
-/* import React, {useState, useEffect} from "react";
-import "./ItemCount.css";
-
-export default function ItemCount ({productoHc}) {
-    const [cart, setCart] = useState([]);
-    const [counter, setCounter] = useState(1);
-
-    const onAdd = () => {
-        (counter < productoHc.stock && counter.stock !== 0 ) ? setCounter(counter+1) : alert("No puede agregar más, stock agotado");
-    }
-    const onSubstract = () => {
-        (counter > 1 ) ? setCounter(counter-1) : alert("No se puede quitar mas");
-    }
-    const addToCart = (productoHc) => {
-        setCart(cart.push(productoHc));
-        console.log(cart);
-    }
-    const updateProductAmount = (productoHc) => {
-        productoHc.amount = counter;
-    }
-
-    useEffect(() => {
-        updateProductAmount(productoHc);
-    }, [counter]);
-
-
-    return(
-        <div className="counter-wrapper">
-            <section className="left-side">
-                <div className="item-counter">
-                    <button className="substract-btn" onClick={()=> onSubstract()}> - </button>
-                    <p className="amount-number"> {counter} </p>
-                    <button className="add-btn" onClick={()=> onAdd()}> + </button>
-                </div>
-            </section>
-            <section className="right-side">
-                <button className="add-to-cart-btn" onClick={()=>{ addToCart(productoHc)}}>Agregar al Carrito</button>
-            </section>
-        </div>
-    )
-};
- */

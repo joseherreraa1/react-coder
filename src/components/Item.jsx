@@ -8,8 +8,8 @@ export default function Item({ product }) {
   return (
       <Card className='cards' style={{ width: '18rem' }}>
       <Card.Img  variant="top" src={product.imgUrl} alt={product.name} />
-      <Card.Body className='medio'>
-        <Card.Title className='title'>{product.name}</Card.Title>
+      <Card.Body>
+        <Card.Title>{product.name}</Card.Title>
         <Card.Text>
         ${product.price}
         </Card.Text>

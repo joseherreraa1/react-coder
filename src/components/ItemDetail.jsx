@@ -7,48 +7,15 @@ export default function ItemDetail({ product }) {
   return (
    <div className='container' >
       <Card  style={{ width: '30rem', margin:"16px"}}>
-      <Card.Title className='title' style={{margin:"1rem"}}>{product.name}</Card.Title>
-      <Card.Text className='title'>
+      <Card.Title style={{margin:"1rem", fontSize:"2.5rem", backgroundColor:"#FD794F"}}>{product.name}</Card.Title>
+      <Card.Text style={{fontWeight:"700", margin:"0", fontSize:"2.5rem"}} >
         ${product.price}
       </Card.Text>
-        <Card.Img style={{width:"25rem",}} variant="top" src={product.imgUrl} alt={product.name} />
-        <Card.Body>
-          {product.description}
+        <Card.Img style={{width:"25rem",alignSelf:"center"}} variant="top" src={product.imgUrl} alt={product.name} />
+        <Card.Body style={{fontWeight:"700"}} >          {product.description}
         </Card.Body>
-        <ItemCount product={product}/>
+        <ItemCount  product={product}/>
       </Card>
     </div>
   )
-}/* 
-
- */
-
-
-
-
-
-/* import React from 'react';
-import "./ItemDetail.css";
-
-export default function ItemDetail({productosHC}) {
-  return (
-
-    <article className='product-wrapper'>
-        <div className='section-img'>
-            <button className='back-to-shop-btn' id={productosHC.id}>
-              <div className='back-to-shop-btn-circle'>
-              </div>
-            </button>
-          <img className='product-detail-img' src={productosHC.image} alt="product img" />
-        </div>
-        <div className='section-detail-info'>
-          <h2 className='product-detail-title'> {productosHC.title} </h2>
-          <p className='product-detail-price'> ${productosHC.price} </p>
-          <div className='product-info-group'>
-            <h3> Descripcion de Producto: </h3>
-            <p className='product-detail-description'> {productosHC.description} </p>
-          </div>
-        </div>
-    </article>
-  )
-} */
+}

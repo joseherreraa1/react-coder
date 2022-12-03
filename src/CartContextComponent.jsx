@@ -5,9 +5,15 @@ import { createContext, useState, useEffect  } from 'react';
 export  const cartContext = createContext();
 
 export default function CartContextComponent({children}) {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(
+      JSON.parse(localStorage.getItem("cart"))  || []);
     const [totalCount, setTotalCount] = useState(0);
     const [totalToPay, setTotalToPay] = useState(0);
+
+    useEffect(() => {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+
 
 function addToCart(item, count){
   const cartAux = [...cart];
